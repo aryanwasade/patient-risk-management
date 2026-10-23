@@ -144,7 +144,7 @@ async function submitPrediction() {
 
   const btn = document.getElementById('btn-submit-predict');
   const originalText = btn.innerHTML;
-  btn.innerHTML = `<span class="status-dot"></span> Analyzing Patient Vitals...`;
+  btn.innerHTML = `<span class="status-dot"></span> Calculating Patient Risk...`;
   btn.disabled = true;
 
   try {
@@ -364,59 +364,59 @@ function exportBatchResults() {
    ------------------------------------------------------------------------- */
 const PLOT_DESCRIPTIONS = {
   'correlation_heatmap.png': {
-    title: 'Clinical Correlation Matrix',
-    desc: 'Bivariate correlations across all 13 clinical attributes showing strong relationships between thalach, oldpeak, and target.'
+    title: 'How Features Connect (Correlation Map)',
+    desc: 'Shows how strongly different health indicators (like heart rate, age, and chest pain) relate to heart disease risk.'
   },
   'clustering_analysis.png': {
-    title: 'Unsupervised K-Means & PCA',
-    desc: 'Patient clustering in reduced 2D PCA feature space discovering natural groupings in clinical risk profiles.'
+    title: 'Grouping Similar Patients (Clustering)',
+    desc: 'An AI method (K-Means) that groups patients into natural clusters based on their overall health checkup numbers.'
   },
   'risk_factor_associations.png': {
-    title: 'Risk Factor Associations',
-    desc: 'Categorical cross-tabulations demonstrating disease prevalence across chest pain types and fluoroscopy major vessels.'
+    title: 'Chest Pain & Blocked Arteries vs Disease',
+    desc: 'Bar charts showing how pain types and blocked vessels increase the likelihood of heart disease.'
   },
   'clinical_distributions.png': {
-    title: 'Clinical Parameter Distributions',
-    desc: 'Histograms with KDE curves of serum cholesterol, resting blood pressure, and maximum exercise heart rate.'
+    title: 'Spread of Cholesterol, BP & Heart Rate',
+    desc: 'Shows the range and average values of blood pressure, cholesterol, and max heart rate across all patients.'
   },
   'age_distribution.png': {
-    title: 'Age Density by Diagnosis',
-    desc: 'Age demographics comparison between healthy cohorts and patients diagnosed with coronary heart disease.'
+    title: 'Age Comparison (Healthy vs At-Risk)',
+    desc: 'Compares the ages of healthy individuals versus individuals with heart disease in the dataset.'
   },
   'feature_comparisons.png': {
-    title: 'Feature Distributions Across Classes',
-    desc: 'Box plots comparing key numeric indicators (oldpeak, thalach, chol, trestbps) split by disease outcome.'
+    title: 'Side-by-Side Test Comparisons',
+    desc: 'Box charts directly comparing test results between healthy patients and patients with heart disease.'
   },
   'target_distribution.png': {
-    title: 'Target Outcome Balance',
-    desc: 'Proportion of disease absence (0) vs presence (1) verifying clean balance in the Cleveland cohort.'
+    title: 'Healthy vs Heart Disease Count',
+    desc: 'Shows how many patients in our dataset are healthy versus having heart disease (almost a clean 50/50 balance).'
   },
   'grouped_summary.png': {
-    title: 'Demographic Risk Segmentation',
-    desc: 'Stratification of disease rate grouped by age quartiles and biological sex.'
+    title: 'Risk by Age and Gender',
+    desc: 'Shows heart disease rates grouped across different age ranges and gender.'
   }
 };
 
 const EVAL_DESCRIPTIONS = {
   'roc_curves.png': {
-    title: 'Multi-Model ROC Curves',
-    desc: 'Receiver Operating Characteristic comparison; Logistic Regression achieved 89.3% mean cross-validated AUC.'
+    title: 'ROC Curve (Distinguishing Power)',
+    desc: 'Measures how accurately each model separates healthy patients from at-risk patients (higher curve is better).'
   },
   'pr_curves.png': {
-    title: 'Precision-Recall Curves',
-    desc: 'Precision vs Recall trade-offs essential for evaluating healthcare screening thresholds and minimizing false negatives.'
+    title: 'Precision vs Recall Curve',
+    desc: 'Shows how good each model is at catching at-risk patients without raising too many false alarms.'
   },
   'confusion_matrices.png': {
-    title: 'Confusion Matrices Matrix',
-    desc: 'True Positives, False Positives, True Negatives, and False Negatives evaluated on hold-out test patients.'
+    title: 'Scorecard (Right vs Wrong Guesses)',
+    desc: 'Shows exactly how many patients the model got right or wrong on unseen test data.'
   },
   'feature_importance.png': {
-    title: 'Feature Importance & Weights',
-    desc: 'Global feature importance rankings indicating primary diagnostic drivers (ca, thal, thalach, oldpeak).'
+    title: 'Top Factors That Influenced the Model',
+    desc: 'Ranks which health factors (like blocked vessels, scan results, and heart rate) mattered most to the AI.'
   },
   'model_comparison.png': {
-    title: 'Performance Benchmark Comparison',
-    desc: 'Cross-validated Accuracy, Precision, Recall, and F1 across all four supervised learning algorithms.'
+    title: 'All Models Comparison',
+    desc: 'Compares Accuracy, Precision, Recall, and F1 balance across all four machine learning models.'
   }
 };
 

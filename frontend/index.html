@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Healthcare Patient Risk Pattern Mining | Machine Learning Capstone</title>
-  <meta name="description" content="Academic Healthcare Machine Learning System for Patient Risk Pattern Mining and Stratification using the Cleveland Heart Disease Dataset.">
+  <title>Heart Disease Risk Predictor | Student ML Project</title>
+  <meta name="description" content="A student-friendly machine learning project to predict heart disease risk using the Cleveland Heart dataset.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,17 +24,17 @@
           </svg>
         </div>
         <div class="brand-text">
-          <h1>Healthcare Patient Risk Pattern Mining</h1>
-          <p>Clinical Machine Learning Decision Support & Pattern Analysis</p>
+          <h1>Heart Disease Risk Predictor</h1>
+          <p>A Simple Machine Learning Project for Predicting Heart Disease Risk</p>
         </div>
       </div>
       <div class="header-badges">
         <span class="badge-tag">
           <span class="status-dot" id="system-status-dot"></span>
-          <span id="system-status-text">Model Active</span>
+          <span id="system-status-text">Model Ready</span>
         </span>
-        <span class="badge-tag">UCI Cleveland Database</span>
-        <span class="badge-tag">Academic Evaluation</span>
+        <span class="badge-tag">Cleveland Heart Dataset (303 Patients)</span>
+        <span class="badge-tag">Student ML Project</span>
       </div>
     </header>
 
@@ -44,7 +44,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
         </svg>
-        Patient Risk Predictor
+        Risk Predictor
       </button>
       <button class="tab-btn" data-tab="tab-batch" role="tab">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -53,7 +53,7 @@
           <line x1="16" y1="13" x2="8" y2="13"></line>
           <line x1="16" y1="17" x2="8" y2="17"></line>
         </svg>
-        Batch CSV Screening
+        Batch Testing (CSV)
       </button>
       <button class="tab-btn" data-tab="tab-eda" role="tab">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -61,7 +61,7 @@
           <line x1="12" y1="20" x2="12" y2="4"></line>
           <line x1="6" y1="20" x2="6" y2="14"></line>
         </svg>
-        EDA & Pattern Mining
+        Charts & Data Patterns
       </button>
       <button class="tab-btn" data-tab="tab-models" role="tab">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -79,7 +79,7 @@
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
         </svg>
-        Clinical Dictionary
+        Simple Feature Guide
       </button>
     </nav>
 
@@ -89,10 +89,10 @@
     <section id="tab-predict" class="tab-pane active">
       <!-- Quick Demo Presets -->
       <div class="presets-bar">
-        <span class="preset-label">Quick Clinical Presets:</span>
-        <button type="button" class="btn-preset" onclick="loadPreset('low')">🟢 Case A: Low Risk Patient (32yo, normal vitals)</button>
-        <button type="button" class="btn-preset" onclick="loadPreset('moderate')">🟡 Case B: Moderate Risk Patient (55yo, borderline)</button>
-        <button type="button" class="btn-preset" onclick="loadPreset('high')">🔴 Case C: High Risk Patient (63yo, angina, st-depr)</button>
+        <span class="preset-label">Quick Test Cases:</span>
+        <button type="button" class="btn-preset" onclick="loadPreset('low')">🟢 Case A: Low Risk (38yo, normal tests)</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('moderate')">🟡 Case B: Medium Risk (55yo, borderline tests)</button>
+        <button type="button" class="btn-preset" onclick="loadPreset('high')">🔴 Case C: High Risk (64yo, chest pain, high BP)</button>
       </div>
 
       <div class="predictor-layout">
@@ -100,8 +100,8 @@
         <div class="glass-card">
           <div class="card-header-bar">
             <div>
-              <h2 class="card-title">Patient Clinical Profile</h2>
-              <p class="card-subtitle">Enter standard 13 diagnostic attributes to assess cardiovascular disease risk.</p>
+              <h2 class="card-title">Patient Health Profile</h2>
+              <p class="card-subtitle">Enter simple health numbers (like age, blood pressure, cholesterol) to check heart disease risk.</p>
             </div>
           </div>
 
@@ -109,7 +109,7 @@
             <!-- Group 1: Demographics -->
             <div class="form-section-title">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              Demographics
+              Basic Information
             </div>
             <div class="form-grid">
               <div class="form-group">
@@ -118,117 +118,117 @@
                 <span class="form-helper">Patient age in years (20-100)</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-sex">Sex <span class="feature-code">sex</span></label>
+                <label class="form-label" for="input-sex">Gender <span class="feature-code">sex</span></label>
                 <select id="input-sex" name="sex" class="form-select">
                   <option value="1">Male (1)</option>
                   <option value="0">Female (0)</option>
                 </select>
-                <span class="form-helper">Biological sex</span>
+                <span class="form-helper">Gender (0 = Female, 1 = Male)</span>
               </div>
             </div>
 
             <!-- Group 2: Vitals & Symptoms -->
             <div class="form-section-title">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-              Vitals & Symptoms
+              Everyday Health & Symptoms
             </div>
             <div class="form-grid">
               <div class="form-group">
                 <label class="form-label" for="input-cp">Chest Pain Type <span class="feature-code">cp</span></label>
                 <select id="input-cp" name="cp" class="form-select">
-                  <option value="1">1: Typical Angina</option>
-                  <option value="2">2: Atypical Angina</option>
-                  <option value="3">3: Non-Anginal Pain</option>
-                  <option value="4" selected>4: Asymptomatic</option>
+                  <option value="1">1: Typical Chest Pain (Tightness during exercise)</option>
+                  <option value="2">2: Unusual Chest Pain (Ache not from exercise)</option>
+                  <option value="3">3: Non-Heart Pain (Sharp / Muscle or stomach)</option>
+                  <option value="4" selected>4: No Chest Pain (Silent / None)</option>
                 </select>
-                <span class="form-helper">Pain classification (1-4)</span>
+                <span class="form-helper">Type of chest pain felt (1 to 4)</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-trestbps">Resting BP <span class="feature-code">trestbps</span></label>
+                <label class="form-label" for="input-trestbps">Resting Blood Pressure <span class="feature-code">trestbps</span></label>
                 <input type="number" id="input-trestbps" name="trestbps" class="form-input" min="80" max="220" value="140" required>
-                <span class="form-helper">Resting blood pressure (mm Hg)</span>
+                <span class="form-helper">Blood pressure while sitting quietly in mm Hg (Normal is ~120)</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-chol">Serum Cholesterol <span class="feature-code">chol</span></label>
+                <label class="form-label" for="input-chol">Cholesterol Level <span class="feature-code">chol</span></label>
                 <input type="number" id="input-chol" name="chol" class="form-input" min="100" max="600" value="240" required>
-                <span class="form-helper">Serum cholesterol (mg/dL)</span>
+                <span class="form-helper">Total cholesterol in mg/dL (Healthy is under 200)</span>
               </div>
               <div class="form-group">
                 <label class="form-label" for="input-fbs">Fasting Blood Sugar <span class="feature-code">fbs</span></label>
                 <select id="input-fbs" name="fbs" class="form-select">
-                  <option value="0" selected>&le; 120 mg/dL (Normal: 0)</option>
-                  <option value="1">&gt; 120 mg/dL (Elevated: 1)</option>
+                  <option value="0" selected>&le; 120 mg/dL (Normal / Not High: 0)</option>
+                  <option value="1">&gt; 120 mg/dL (High / Sugar Warning: 1)</option>
                 </select>
-                <span class="form-helper">Fasting blood sugar flag</span>
+                <span class="form-helper">Is blood sugar after fasting over 120 mg/dL?</span>
               </div>
             </div>
 
             <!-- Group 3: Cardiac Diagnostic Tests -->
             <div class="form-section-title">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-              Cardiac Tests & ECG
+              Heart Tests & Heart Monitor (ECG)
             </div>
             <div class="form-grid">
               <div class="form-group">
-                <label class="form-label" for="input-restecg">Resting ECG <span class="feature-code">restecg</span></label>
+                <label class="form-label" for="input-restecg">Resting Heart Monitor (ECG) <span class="feature-code">restecg</span></label>
                 <select id="input-restecg" name="restecg" class="form-select">
-                  <option value="0">0: Normal</option>
-                  <option value="1">1: ST-T Wave Abnormality</option>
-                  <option value="2">2: Left Ventricular Hypertrophy</option>
+                  <option value="0">0: Normal Heart Waves</option>
+                  <option value="1">1: Mild Wave Irregularity (ST-T wave)</option>
+                  <option value="2">2: Enlarged Heart Muscle (Thick heart wall / strain)</option>
                 </select>
-                <span class="form-helper">Resting ECG findings (0-2)</span>
+                <span class="form-helper">Resting electrical heart test result (0 to 2)</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-thalach">Max Heart Rate <span class="feature-code">thalach</span></label>
+                <label class="form-label" for="input-thalach">Maximum Heart Rate <span class="feature-code">thalach</span></label>
                 <input type="number" id="input-thalach" name="thalach" class="form-input" min="60" max="220" value="150" required>
-                <span class="form-helper">Peak exercise heart rate (bpm)</span>
+                <span class="form-helper">Highest heart rate reached during exercise test (beats per min)</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-exang">Exercise Angina <span class="feature-code">exang</span></label>
+                <label class="form-label" for="input-exang">Chest Pain During Exercise? <span class="feature-code">exang</span></label>
                 <select id="input-exang" name="exang" class="form-select">
                   <option value="0" selected>No (0)</option>
                   <option value="1">Yes (1)</option>
                 </select>
-                <span class="form-helper">Exercise-induced chest pain</span>
+                <span class="form-helper">Did walking fast or running cause chest pain?</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-oldpeak">ST Depression <span class="feature-code">oldpeak</span></label>
+                <label class="form-label" for="input-oldpeak">Heart Stress Wave Dip <span class="feature-code">oldpeak</span></label>
                 <input type="number" step="0.1" id="input-oldpeak" name="oldpeak" class="form-input" min="0" max="7" value="1.5" required>
-                <span class="form-helper">Exercise ST depression relative to rest</span>
+                <span class="form-helper">ECG wave drop under exercise (0 = none, higher = more strain)</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-slope">Peak ST Slope <span class="feature-code">slope</span></label>
+                <label class="form-label" for="input-slope">Heart Wave Slope <span class="feature-code">slope</span></label>
                 <select id="input-slope" name="slope" class="form-select">
-                  <option value="1">1: Upsloping</option>
-                  <option value="2" selected>2: Flat</option>
-                  <option value="3">3: Downsloping</option>
+                  <option value="1">1: Sloping Up (Healthy pattern)</option>
+                  <option value="2" selected>2: Flat (Warning sign)</option>
+                  <option value="3">3: Sloping Down (High strain)</option>
                 </select>
-                <span class="form-helper">Slope of peak exercise ST segment</span>
+                <span class="form-helper">Direction of the wave curve during hard exercise</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-ca">Major Vessels <span class="feature-code">ca</span></label>
+                <label class="form-label" for="input-ca">Blocked Blood Vessels Count <span class="feature-code">ca</span></label>
                 <select id="input-ca" name="ca" class="form-select">
-                  <option value="0" selected>0 vessels</option>
-                  <option value="1">1 vessel</option>
+                  <option value="0" selected>0 vessels (Clear)</option>
+                  <option value="1">1 vessel (Mild block)</option>
                   <option value="2">2 vessels</option>
                   <option value="3">3 vessels</option>
                 </select>
-                <span class="form-helper">Fluoroscopy colored major vessels (0-3)</span>
+                <span class="form-helper">Number of main heart arteries showing blockage (0 to 3)</span>
               </div>
               <div class="form-group">
-                <label class="form-label" for="input-thal">Thalassemia <span class="feature-code">thal</span></label>
+                <label class="form-label" for="input-thal">Heart Blood Flow Scan <span class="feature-code">thal</span></label>
                 <select id="input-thal" name="thal" class="form-select">
-                  <option value="3" selected>3: Normal</option>
-                  <option value="6">6: Fixed Defect</option>
-                  <option value="7">7: Reversible Defect</option>
+                  <option value="3" selected>3: Normal Blood Flow</option>
+                  <option value="6">6: Permanent Blood Flow Issue (Old scar)</option>
+                  <option value="7">7: Temporary Blood Flow Issue (During exercise)</option>
                 </select>
-                <span class="form-helper">Blood flow defect scintigraphy</span>
+                <span class="form-helper">Scan showing if blood flows smoothly to all areas of heart</span>
               </div>
             </div>
 
             <button type="submit" class="btn-primary-action" id="btn-submit-predict">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Run Risk Mining Analysis
+              Check Heart Disease Risk
             </button>
           </form>
         </div>
@@ -238,8 +238,8 @@
           <div class="result-card-inner">
             <div class="card-header-bar">
               <div>
-                <h2 class="card-title">Risk Stratification Output</h2>
-                <p class="card-subtitle">Calculated likelihood from trained model</p>
+                <h2 class="card-title">Risk Assessment Result</h2>
+                <p class="card-subtitle">What the machine learning model calculated</p>
               </div>
             </div>
 
@@ -251,15 +251,15 @@
               <div class="probability-val" id="res-prob-val">
                 26.2<span>%</span>
               </div>
-              <div class="probability-label">Estimated Disease Probability</div>
+              <div class="probability-label">Estimated Risk Probability</div>
 
               <div class="gauge-bar-wrapper">
                 <div class="gauge-bar-fill" id="res-gauge-fill" style="width: 26.2%;"></div>
               </div>
               <div class="gauge-labels">
-                <span>0% Low</span>
-                <span>35% Moderate</span>
-                <span>65% High</span>
+                <span>0% Low Risk</span>
+                <span>35% Medium Risk</span>
+                <span>65% High Risk</span>
                 <span>100%</span>
               </div>
             </div>
@@ -267,30 +267,26 @@
             <!-- Key Findings & Details -->
             <div class="risk-details-list">
               <div class="risk-detail-row">
-                <span class="risk-detail-label">Model Classification:</span>
+                <span class="risk-detail-label">Prediction Result:</span>
                 <span class="risk-detail-val" id="res-classification">No Heart Disease</span>
               </div>
               <div class="risk-detail-row">
-                <span class="risk-detail-label">No-Disease Probability:</span>
+                <span class="risk-detail-label">Chance of Low Risk / Healthy:</span>
                 <span class="risk-detail-val" id="res-prob-nodisease">73.8%</span>
               </div>
               <div class="risk-detail-row">
-                <span class="risk-detail-label">Clinical Interpretation:</span>
+                <span class="risk-detail-label">Plain Summary:</span>
                 <span class="risk-detail-val" id="res-description" style="font-weight: 500; font-size: 0.8rem; text-align: right; max-width: 60%;">
-                  The model estimates a low probability of heart disease.
+                  The model predicts a low chance of heart disease based on the input health numbers.
                 </span>
               </div>
             </div>
 
             <!-- Medical Disclaimer -->
             <div class="disclaimer-box">
-              <strong>ACADEMIC DISCLAIMER:</strong> This prediction is produced by a machine learning model trained on the historical UCI Cleveland dataset for educational evaluation. It is <strong>NOT a clinical diagnostic tool</strong> and must not be used for actual healthcare treatment or diagnosis.
+              <strong>STUDENT PROJECT DISCLAIMER:</strong> This prediction is produced by a machine learning model built by students on the historical Cleveland dataset for learning and class presentation. It is <strong>NOT a doctor's tool</strong> and cannot be used for medical decisions.
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
     <!-- =========================================================================
          TAB 2: BATCH CSV SCREENING
          ========================================================================= -->
@@ -298,8 +294,8 @@
       <div class="glass-card mb-3">
         <div class="card-header-bar">
           <div>
-            <h2 class="card-title">Batch Patient Screening via CSV</h2>
-            <p class="card-subtitle">Upload multi-patient tabular data for automated population risk stratification.</p>
+            <h2 class="card-title">Test Multiple Patients at Once (CSV)</h2>
+            <p class="card-subtitle">Upload a spreadsheet (.csv) to calculate heart disease risk for a group of patients automatically.</p>
           </div>
           <div>
             <button class="btn-preset" onclick="downloadSampleCSV()">
@@ -318,7 +314,7 @@
             </svg>
           </div>
           <div class="upload-title" id="upload-status-title">Drag & Drop your CSV file here, or click to browse</div>
-          <div class="upload-subtitle">Requires the 13 clinical columns (age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal)</div>
+          <div class="upload-subtitle">Requires the 13 health columns (age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal)</div>
         </div>
       </div>
 
@@ -330,7 +326,7 @@
             <div class="stat-icon">👥</div>
             <div class="stat-content">
               <div class="stat-val" id="batch-stat-total">0</div>
-              <div class="stat-title">Patients Screened</div>
+              <div class="stat-title">Patients Tested</div>
             </div>
           </div>
           <div class="stat-metric-card">
@@ -344,7 +340,7 @@
             <div class="stat-icon" style="color: var(--risk-mod);">⚠️</div>
             <div class="stat-content">
               <div class="stat-val" id="batch-stat-mod" style="color: var(--risk-mod);">0</div>
-              <div class="stat-title">Moderate Risk</div>
+              <div class="stat-title">Medium Risk</div>
             </div>
           </div>
           <div class="stat-metric-card">
@@ -359,7 +355,7 @@
         <!-- Table View -->
         <div class="glass-card">
           <div class="card-header-bar">
-            <h3 class="card-title">Patient Screening Manifest</h3>
+            <h3 class="card-title">Patient Risk Results Table</h3>
             <button class="btn-preset" onclick="exportBatchResults()">📤 Export Screened Results</button>
           </div>
           <div class="table-responsive">
@@ -367,14 +363,14 @@
               <thead>
                 <tr>
                   <th>Patient #</th>
-                  <th>Age / Sex</th>
-                  <th>Chest Pain (cp)</th>
-                  <th>Resting BP</th>
+                  <th>Age / Gender</th>
+                  <th>Chest Pain</th>
+                  <th>Blood Pressure</th>
                   <th>Cholesterol</th>
-                  <th>Max HR</th>
-                  <th>ST Depr.</th>
-                  <th>Risk Category</th>
-                  <th>P(Disease)</th>
+                  <th>Max Heart Rate</th>
+                  <th>Stress Dip</th>
+                  <th>Risk Level</th>
+                  <th>Risk Chance</th>
                 </tr>
               </thead>
               <tbody id="batch-table-body">
@@ -393,13 +389,13 @@
       <div class="glass-card mb-3">
         <div class="card-header-bar">
           <div>
-            <h2 class="card-title">Exploratory Pattern Mining & Clinical Insights</h2>
-            <p class="card-subtitle">Statistical discovery, correlation analysis, and unsupervised clustering from training cohort.</p>
+            <h2 class="card-title">Data Patterns & Visual Insights</h2>
+            <p class="card-subtitle">Exploratory charts showing how health tests, habits, and symptoms connect with heart disease.</p>
           </div>
         </div>
         <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;">
-          The Cleveland Heart Disease dataset was mined using exploratory data analysis and unsupervised K-Means clustering. Key medical patterns emerge:
-          <strong>asymptomatic chest pain</strong> paired with <strong>exercise-induced ST depression</strong> and <strong>fluoroscopy-colored major vessels (ca &ge; 1)</strong> strongly correlate with coronary artery disease.
+          We explored 303 patient records to uncover what health signs most strongly warn of heart disease. The data clearly shows:
+          patients with <strong>silent chest pain (type 4)</strong>, <strong>exercise-induced heart wave dips (oldpeak)</strong>, and <strong>blocked blood vessels (ca &ge; 1)</strong> are much more likely to have heart disease.
         </p>
       </div>
 
@@ -417,9 +413,9 @@
       <div class="glass-card mb-3" style="border-left: 4px solid var(--accent-cyan);">
         <div class="card-header-bar">
           <div>
-            <span class="badge-tag" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); margin-bottom: 8px;">Selected Production Model</span>
+            <span class="badge-tag" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); margin-bottom: 8px;">Best Performing Model</span>
             <h2 class="card-title" id="best-model-name">Logistic Regression</h2>
-            <p class="card-subtitle">Selected for optimal calibrated probability outputs, strong generalization, and clinical interpretability.</p>
+            <p class="card-subtitle">Chosen because it achieved the highest accuracy, balanced scores, and is easy to explain in a student presentation.</p>
           </div>
         </div>
         <div class="stats-cards-grid mt-3">
@@ -427,28 +423,28 @@
             <div class="stat-icon">🎯</div>
             <div class="stat-content">
               <div class="stat-val" id="metric-accuracy">86.9%</div>
-              <div class="stat-title">Test Accuracy</div>
+              <div class="stat-title">Overall Accuracy</div>
             </div>
           </div>
           <div class="stat-metric-card">
             <div class="stat-icon">⚖️</div>
             <div class="stat-content">
               <div class="stat-val" id="metric-f1">80.9%</div>
-              <div class="stat-title">Mean 5-Fold CV F1</div>
+              <div class="stat-title">Balance Score (F1 Score)</div>
             </div>
           </div>
           <div class="stat-metric-card">
             <div class="stat-icon">📈</div>
             <div class="stat-content">
               <div class="stat-val" id="metric-roc">89.3%</div>
-              <div class="stat-title">Mean CV ROC-AUC</div>
+              <div class="stat-title">Separation Score (ROC-AUC)</div>
             </div>
           </div>
           <div class="stat-metric-card">
             <div class="stat-icon">🔍</div>
             <div class="stat-content">
               <div class="stat-val" id="metric-recall">79.5%</div>
-              <div class="stat-title">Mean Sensitivity (Recall)</div>
+              <div class="stat-title">Catch Rate (Recall)</div>
             </div>
           </div>
         </div>
@@ -456,18 +452,18 @@
 
       <!-- Models Benchmark Table -->
       <div class="glass-card mb-3">
-        <h3 class="card-title mb-2">Cross-Validation Benchmark (5-Fold Stratified)</h3>
+        <h3 class="card-title mb-2">Model Scoreboard Comparison</h3>
         <div class="table-responsive">
           <table class="custom-table" id="models-benchmark-table">
             <thead>
               <tr>
-                <th>Model Architecture</th>
-                <th>Accuracy (Mean)</th>
-                <th>Precision</th>
-                <th>Recall (Sensitivity)</th>
-                <th>F1-Score</th>
-                <th>ROC-AUC</th>
-                <th>Selection Rationale</th>
+                <th>Model Name</th>
+                <th>Accuracy</th>
+                <th>Precision (Exactness)</th>
+                <th>Recall (Catch Rate)</th>
+                <th>F1-Score (Balance)</th>
+                <th>ROC-AUC (Overall Power)</th>
+                <th>Why We Chose / Graded It</th>
               </tr>
             </thead>
             <tbody>
@@ -478,7 +474,7 @@
                 <td>79.5%</td>
                 <td><strong>80.9%</strong></td>
                 <td><strong>89.3%</strong></td>
-                <td>Top F1 & ROC-AUC; calibrated probabilities</td>
+                <td>Best overall score and very easy to explain in a presentation</td>
               </tr>
               <tr>
                 <td><strong>Random Forest</strong></td>
@@ -487,7 +483,7 @@
                 <td>74.8%</td>
                 <td>77.2%</td>
                 <td>88.0%</td>
-                <td>Ensemble baseline; good feature ranking</td>
+                <td>Strong team of decision trees; good second best</td>
               </tr>
               <tr>
                 <td><strong>Gradient Boosting</strong></td>
@@ -496,7 +492,7 @@
                 <td>74.8%</td>
                 <td>72.9%</td>
                 <td>85.3%</td>
-                <td>Iterative residual learning; prone to small-sample variance</td>
+                <td>Learns step-by-step; good, but slightly more complex</td>
               </tr>
               <tr>
                 <td><strong>Decision Tree</strong></td>
@@ -505,7 +501,7 @@
                 <td>65.2%</td>
                 <td>67.5%</td>
                 <td>70.8%</td>
-                <td>Single tree baseline; high variance</td>
+                <td>Simple flowchart rules; prone to memorizing training data</td>
               </tr>
             </tbody>
           </table>
@@ -514,7 +510,7 @@
 
       <!-- Model Evaluation Visualizations -->
       <div class="glass-card">
-        <h3 class="card-title mb-2">Diagnostic Evaluation Curves</h3>
+        <h3 class="card-title mb-2">Model Performance Charts</h3>
         <div class="gallery-grid" id="eval-gallery-grid">
           <!-- Populated dynamically via JS -->
         </div>
@@ -526,8 +522,8 @@
          ========================================================================= -->
     <section id="tab-dictionary" class="tab-pane">
       <div class="glass-card mb-3">
-        <h2 class="card-title">Cleveland Heart Disease Feature Dictionary</h2>
-        <p class="card-subtitle">Comprehensive description of all 14 clinical parameters, medical significance, and encoding schemas.</p>
+        <h2 class="card-title">Heart Health Feature Guide (Student-Friendly)</h2>
+        <p class="card-subtitle">A simple plain-English guide to all 14 data columns, what they test, and why they matter.</p>
       </div>
 
       <div class="glass-card">
@@ -536,11 +532,11 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Feature Code</th>
-                <th>Clinical Name</th>
-                <th>Type</th>
-                <th>Values / Range</th>
-                <th>Medical Significance</th>
+                <th>Data Column</th>
+                <th>Plain Name</th>
+                <th>Data Type</th>
+                <th>Range / Options</th>
+                <th>What It Means (Simple Words)</th>
               </tr>
             </thead>
             <tbody>
@@ -548,113 +544,113 @@
                 <td>1</td>
                 <td><code>age</code></td>
                 <td>Age</td>
-                <td>Continuous</td>
+                <td>Number</td>
                 <td>29 - 77 years</td>
-                <td>Cardiovascular risk increases progressively with advancing age.</td>
+                <td>Heart disease risk naturally increases as people get older.</td>
               </tr>
               <tr>
                 <td>2</td>
                 <td><code>sex</code></td>
-                <td>Biological Sex</td>
-                <td>Binary</td>
+                <td>Gender</td>
+                <td>Category</td>
                 <td>0 = Female, 1 = Male</td>
-                <td>Men historically exhibit earlier onset of coronary artery disease.</td>
+                <td>Men in this historical study showed earlier signs of heart issues.</td>
               </tr>
               <tr>
                 <td>3</td>
                 <td><code>cp</code></td>
                 <td>Chest Pain Type</td>
-                <td>Categorical</td>
-                <td>1: Typical, 2: Atypical, 3: Non-anginal, 4: Asymptomatic</td>
-                <td>Asymptomatic angina (type 4) frequently signals silent coronary ischemia.</td>
+                <td>Category (1-4)</td>
+                <td>1: Typical, 2: Unusual, 3: Non-heart, 4: No pain</td>
+                <td>Describes how chest pain feels. People with no pain (type 4) often had hidden severe heart issues.</td>
               </tr>
               <tr>
                 <td>4</td>
                 <td><code>trestbps</code></td>
                 <td>Resting Blood Pressure</td>
-                <td>Continuous</td>
+                <td>Number</td>
                 <td>94 - 200 mm Hg</td>
-                <td>Hypertension accelerates endothelial vascular injury.</td>
+                <td>High blood pressure puts extra strain and wear on heart blood vessels.</td>
               </tr>
               <tr>
                 <td>5</td>
                 <td><code>chol</code></td>
-                <td>Serum Cholesterol</td>
-                <td>Continuous</td>
+                <td>Cholesterol Level</td>
+                <td>Number</td>
                 <td>126 - 564 mg/dL</td>
-                <td>Elevated LDL contributes to atherosclerotic plaque accumulation.</td>
+                <td>Too much cholesterol can build up fatty deposits inside blood vessels.</td>
               </tr>
               <tr>
                 <td>6</td>
                 <td><code>fbs</code></td>
                 <td>Fasting Blood Sugar</td>
-                <td>Binary</td>
-                <td>0: &le; 120, 1: &gt; 120 mg/dL</td>
-                <td>Surrogate marker for diabetes, a recognized cardiovascular multiplier.</td>
+                <td>Yes / No</td>
+                <td>0 = Normal, 1 = Sugar High (&gt;120 mg/dL)</td>
+                <td>Checks for high blood sugar or diabetes, which adds stress to the heart.</td>
               </tr>
               <tr>
                 <td>7</td>
                 <td><code>restecg</code></td>
-                <td>Resting Electrocardiogram</td>
-                <td>Categorical</td>
-                <td>0: Normal, 1: ST-T wave, 2: LV hypertrophy</td>
-                <td>Identifies pre-existing ventricular strain or conduction anomalies.</td>
+                <td>Resting Heart Monitor (ECG)</td>
+                <td>Category (0-2)</td>
+                <td>0: Normal, 1: Unusual wave, 2: Thick heart muscle</td>
+                <td>A quick electrical test that records heart waves while lying quietly.</td>
               </tr>
               <tr>
                 <td>8</td>
                 <td><code>thalach</code></td>
-                <td>Max Heart Rate Achieved</td>
-                <td>Continuous</td>
+                <td>Maximum Heart Rate</td>
+                <td>Number</td>
                 <td>71 - 202 bpm</td>
-                <td>Chronotropic incompetence (inability to reach target HR) indicates cardiac stress.</td>
+                <td>Highest heart rate during exercise. A heart that cannot beat fast enough under stress may be weak.</td>
               </tr>
               <tr>
                 <td>9</td>
                 <td><code>exang</code></td>
-                <td>Exercise Induced Angina</td>
-                <td>Binary</td>
+                <td>Chest Pain From Exercise</td>
+                <td>Yes / No</td>
                 <td>0 = No, 1 = Yes</td>
-                <td>Indicates insufficient myocardial perfusion under physiological demand.</td>
+                <td>Did exercise cause chest pain? If yes, the heart muscle may not be getting enough oxygen.</td>
               </tr>
               <tr>
                 <td>10</td>
                 <td><code>oldpeak</code></td>
-                <td>ST Depression</td>
-                <td>Continuous</td>
+                <td>Heart Stress Wave Dip</td>
+                <td>Number</td>
                 <td>0.0 - 6.2 mm</td>
-                <td>ST segment depression during stress test indicates subendocardial ischemia.</td>
+                <td>How much the ECG wave drops during hard exercise. Bigger dips mean the heart is under stress.</td>
               </tr>
               <tr>
                 <td>11</td>
                 <td><code>slope</code></td>
-                <td>Peak Exercise ST Slope</td>
-                <td>Categorical</td>
-                <td>1: Upsloping, 2: Flat, 3: Downsloping</td>
-                <td>Flat or downsloping ST indicates significant coronary occlusion.</td>
+                <td>Heart Wave Slope During Exercise</td>
+                <td>Category (1-3)</td>
+                <td>1: Sloping up (healthy), 2: Flat (warning), 3: Sloping down</td>
+                <td>The direction the heart wave travels during peak exercise. Flat or downward lines indicate heart strain.</td>
               </tr>
               <tr>
                 <td>12</td>
                 <td><code>ca</code></td>
-                <td>Major Vessels Colored</td>
-                <td>Discrete</td>
+                <td>Blocked Blood Vessels Count</td>
+                <td>Number (0-3)</td>
                 <td>0 - 3 vessels</td>
-                <td>Fluoroscopy assessment; more opacified vessels indicate widespread disease.</td>
+                <td>Number of major heart arteries showing blockages on an X-ray scan. More blocks = higher risk.</td>
               </tr>
               <tr>
                 <td>13</td>
                 <td><code>thal</code></td>
-                <td>Thalassemia Scintigraphy</td>
-                <td>Categorical</td>
-                <td>3 = Normal, 6 = Fixed defect, 7 = Reversible</td>
-                <td>Nuclear perfusion defect; reversible defects identify salvageable ischemic myocardium.</td>
+                <td>Heart Blood Flow Scan</td>
+                <td>Category</td>
+                <td>3 = Normal flow, 6 = Old scar, 7 = Temporary issue</td>
+                <td>A scan showing whether blood flows smoothly to all areas of the heart muscle.</td>
               </tr>
               <tr style="background: rgba(6, 182, 212, 0.05);">
                 <td>🎯</td>
                 <td><code>target</code></td>
-                <td>Heart Disease Diagnosis</td>
-                <td>Binary Target</td>
-                <td>0 = Absence, 1 = Presence</td>
-                <td>Primary prediction label (&gt; 50% vessel diameter narrowing).</td>
+                <td>Heart Disease Result</td>
+                <td>Goal Label</td>
+                <td>0 = Healthy / No Disease, 1 = Heart Disease Detected</td>
+                <td>What our machine learning model is trained to predict.</td>
               </tr>
             </tbody>
           </table>

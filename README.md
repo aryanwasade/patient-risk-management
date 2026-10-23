@@ -1,53 +1,53 @@
-# Healthcare Patient Risk Pattern Mining Using Machine Learning
+# Heart Disease Risk Predictor (Student Machine Learning Project)
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.3%2B-orange.svg)](https://scikit-learn.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.0%2B-black.svg)](https://flask.palletsprojects.com/)
-[![Status](https://img.shields.io/badge/Evaluation-Academic%20Capstone-emerald.svg)]()
+[![Status](https://img.shields.io/badge/Project-Student%20Capstone-emerald.svg)]()
 
-> **Academic Machine Learning Project**: An end-to-end clinical pattern mining and cardiovascular risk prediction platform designed for university academic evaluation.
+> **Student Machine Learning Project**: A simple, easy-to-understand machine learning project to predict heart disease risk using health checkup records from the Cleveland Heart dataset.
 
 ---
 
-## 1. Project Overview & Clinical Objective
+## 1. Project Overview & Goals
 
-Coronary heart disease remains one of the primary contributors to global cardiovascular morbidity and mortality. Early detection and risk stratification through non-invasive clinical and demographic parameters provide healthcare practitioners with diagnostic decision-support prior to invasive angiography.
+Heart disease is one of the leading health problems worldwide. Catching heart issues early using simple, non-invasive health checks (like age, blood pressure, cholesterol, and basic heart monitoring) can help people take action before serious complications occur.
 
 This project implements an end-to-end machine learning system that:
-1. **Mines clinical patterns**: Identifies non-linear correlations and groupings among diagnostic attributes (e.g., ST depression, fluoroscopy major vessel opacification, chronotropic incompetence).
-2. **Trains and benchmarks 4 ML algorithms**: Compares Logistic Regression, Random Forest, Gradient Boosting, and Decision Trees using **5-Fold Stratified Cross-Validation**.
-3. **Calibrates probabilistic risk tiers**: Groups patients into statistical categories—**Low Risk** ($P < 0.35$), **Moderate Risk** ($0.35 \le P < 0.65$), and **High Risk** ($P \ge 0.65$).
-4. **Delivers a production-grade full-stack dashboard**: Features single-patient risk estimation with clinical presets, high-throughput drag-and-drop batch CSV screening, an interactive EDA plot gallery, and model diagnostic curves.
+1. **Finds Data Patterns**: Discovers patterns connecting health checks (such as exercise test results, chest pain, and blocked arteries) to heart disease risk.
+2. **Trains and Compares 4 ML Models**: Compares Logistic Regression, Random Forest, Gradient Boosting, and Decision Tree models using **5-Fold Cross-Validation**.
+3. **Groups Risk into Simple Tiers**: Groups patient results into three easy-to-understand risk levels—**Low Risk** ($P < 0.35$), **Medium Risk** ($0.35 \le P < 0.65$), and **High Risk** ($P \ge 0.65$).
+4. **Provides an Interactive Web App**: Features single-patient risk checks with quick example presets, drag-and-drop batch CSV testing, simple data charts, and model comparison scoreboards.
 
 ---
 
-## 2. Dataset Selection & Clinical Dictionary
+## 2. Dataset Selection & Feature Guide
 
-### Dataset: UCI Cleveland Heart Disease Database
+### Dataset: Cleveland Heart Disease Dataset
 - **Source**: [UCI Machine Learning Repository — Heart Disease](https://archive.ics.uci.edu/dataset/45/heart+disease)
-- **Institution**: Cleveland Clinic Foundation (Dr. Robert Detrano)
-- **Instances**: 303 patient records
-- **Features**: 13 diagnostic/demographic attributes + 1 binary target
-- **Target Distribution**: 164 No Heart Disease (54.1%) vs. 139 Disease Present (45.9%) — balanced, avoiding severe class imbalance pitfalls.
+- **Institution**: Cleveland Clinic Foundation
+- **Records**: 303 patient records
+- **Features**: 13 health attributes + 1 goal prediction label (`target`)
+- **Balance**: 164 Healthy (54.1%) vs. 139 Heart Disease (45.9%) — nicely balanced data.
 
-### Clinical Feature Dictionary
+### Simple Feature Guide (Student Cheatsheet)
 
-| # | Attribute | Code | Type | Permissible Range / Values | Medical Significance |
-|---|-----------|------|------|---------------------------|----------------------|
-| 1 | Age | `age` | Numeric | 29 – 77 years | Advancing age is a non-modifiable cardiovascular risk factor. |
-| 2 | Sex | `sex` | Binary | 0 = Female, 1 = Male | Hormonal differences and typical CAD presentation timing. |
-| 3 | Chest Pain Type | `cp` | Categorical | 1: Typical Angina, 2: Atypical, 3: Non-Anginal, 4: Asymptomatic | Asymptomatic chest pain frequently signals silent ischemia in advanced stenosis. |
-| 4 | Resting Blood Pressure | `trestbps` | Numeric | 94 – 200 mm Hg | Elevated vascular resistance causing arterial stiffening. |
-| 5 | Serum Cholesterol | `chol` | Numeric | 126 – 564 mg/dL | Circulating lipid levels contributing to atherosclerotic plaque. |
-| 6 | Fasting Blood Sugar | `fbs` | Binary | 0: $\le 120$ mg/dL, 1: $> 120$ mg/dL | Surrogate indicator of metabolic disorder/diabetes. |
-| 7 | Resting ECG | `restecg` | Categorical | 0: Normal, 1: ST-T wave anomaly, 2: LV Hypertrophy | Detects electrical conduction defects and ventricular strain. |
-| 8 | Maximum Heart Rate | `thalach` | Numeric | 71 – 202 bpm | Chronotropic incompetence (inability to reach expected HR). |
-| 9 | Exercise Induced Angina | `exang` | Binary | 0 = No, 1 = Yes | Myocardial hypoxia induced under physiological stress. |
-| 10 | ST Depression | `oldpeak` | Numeric | 0.0 – 6.2 mm | Exercise-induced ST depression relative to resting baseline. |
-| 11 | ST Slope | `slope` | Categorical | 1: Upsloping, 2: Flat, 3: Downsloping | Flat or downsloping ST segments denote severe ischemia. |
-| 12 | Major Vessels Colored | `ca` | Numeric | 0 – 3 vessels | Number of major coronary arteries opacified by fluoroscopy. |
-| 13 | Thalassemia Scintigraphy | `thal` | Categorical | 3: Normal, 6: Fixed defect, 7: Reversible defect | Nuclear imaging revealing areas of transient or permanent ischemic damage. |
-| 🎯 | Disease Diagnosis | `target` | Binary | 0: No Disease, 1: Disease Present ($>50\%$ vessel diameter narrowing) | Supervised classification label. |
+| # | Feature Name | Column | Type | Values / Range | What It Means (Simple Words) |
+|---|--------------|--------|------|----------------|------------------------------|
+| 1 | Age | `age` | Number | 29 – 77 years | Heart risk increases naturally as people get older. |
+| 2 | Gender | `sex` | Yes/No | 0 = Female, 1 = Male | Men in this dataset showed earlier signs of heart disease. |
+| 3 | Chest Pain Type | `cp` | Category | 1: Typical, 2: Unusual, 3: Non-heart, 4: No pain | Type of chest pain felt. Interestingly, patients with no pain (type 4) often had hidden severe issues. |
+| 4 | Resting Blood Pressure | `trestbps` | Number | 94 – 200 mm Hg | High blood pressure puts extra wear and strain on blood vessels. |
+| 5 | Cholesterol Level | `chol` | Number | 126 – 564 mg/dL | High cholesterol can cause fatty buildup in heart vessels. |
+| 6 | Fasting Blood Sugar | `fbs` | Yes/No | 0: Normal, 1: High (> 120 mg/dL) | Checks for diabetes or high blood sugar, which strains the heart. |
+| 7 | Resting Heart Monitor (ECG) | `restecg` | Category | 0: Normal, 1: Unusual wave, 2: Thick heart muscle | Quick electrical recording of the heartbeat while resting quietly. |
+| 8 | Maximum Heart Rate | `thalach` | Number | 71 – 202 bpm | Highest heart rate achieved during exercise test. Lower peak rate can mean heart weakness. |
+| 9 | Chest Pain from Exercise | `exang` | Yes/No | 0 = No, 1 = Yes | Did exercise trigger chest discomfort? If yes, heart may lack oxygen during stress. |
+| 10 | Heart Stress Wave Dip | `oldpeak` | Number | 0.0 – 6.2 mm | How much the ECG wave dips during hard exercise. Larger dips indicate heart strain. |
+| 11 | Heart Wave Slope | `slope` | Category | 1: Sloping up (healthy), 2: Flat, 3: Sloping down | The direction the ECG wave curve points during hard exercise. |
+| 12 | Blocked Vessels Count | `ca` | Number | 0 – 3 vessels | Number of major arteries showing blockages on an X-ray scan. |
+| 13 | Heart Blood Flow Scan | `thal` | Category | 3: Normal flow, 6: Permanent issue (old scar), 7: Temporary issue | Scan showing if blood flows properly to all areas of the heart. |
+| 🎯 | Prediction Target | `target` | Goal | 0: Healthy / No Disease, 1: Heart Disease Detected | What our machine learning models are trained to predict. |
 
 ---
 
@@ -110,22 +110,22 @@ graph TD
 - **Test F1-Score**: **86.7%**
 - **Test ROC-AUC**: **91.9%**
 
-### Healthcare Rationale for Model Selection
-1. **High Clinical Recall (92.9%)**: In cardiovascular triage, false negatives (failing to identify an ischemic patient) are significantly more dangerous than false positives.
-2. **Calibrated Probabilities**: Logistic regression directly yields well-calibrated posterior probabilities, allowing dependable risk categorization.
-3. **Interpretability**: Medical systems require explainable feature weights (e.g. odds ratios) rather than opaque black-box decisions.
+### Why We Chose Logistic Regression (Student Presentation Points)
+1. **High Catch Rate (Recall 92.9%)**: In health screenings, it is most important not to miss anyone who might have heart disease. The model correctly identified 26 out of 28 disease cases.
+2. **Clear Probability Percentages**: Logistic regression naturally produces clean probabilities (e.g., 26% risk, 85% risk) which make it easy to group patients into Low, Medium, or High risk.
+3. **Easy to Explain**: Unlike complicated black-box algorithms, Logistic Regression provides clear weights for each test factor so any student can explain why a prediction was made.
 
 ---
 
-## 5. Statistical Risk Categorization
+## 5. Simple Risk Levels Explained
 
-The predicted disease probability $P(\text{disease})$ is mapped to statistical risk categories derived from model calibration:
+The predicted disease probability $P(\text{disease})$ is translated into 3 easy-to-understand categories:
 
-| Risk Category | Probability Range | Clinical Action / Interpretation |
-|---------------|-------------------|----------------------------------|
-| 🟢 **Low Risk** | $P < 0.35$ | Model indicates low statistical likelihood of CAD. Regular wellness checkups recommended. |
-| 🟡 **Moderate Risk** | $0.35 \le P < 0.65$ | Indeterminate or borderline likelihood. Stress echocardiography or functional testing advised. |
-| 🔴 **High Risk** | $P \ge 0.65$ | High statistical likelihood. Priority referral for cardiological consultation and invasive angiography. |
+| Risk Level | Risk Range | What It Means (Simple Words) |
+|------------|------------|------------------------------|
+| 🟢 **Low Risk** | Under 35% | Most health signs are in normal ranges. Healthy routine habits recommended. |
+| 🟡 **Medium Risk** | 35% to 65% | Borderline health readings. A doctor may suggest re-checking tests or lifestyle changes. |
+| 🔴 **High Risk** | Above 65% | Several high-risk indicators detected (e.g., high stress wave dip, blocked arteries). Doctor review advised. |
 
 ---
 
